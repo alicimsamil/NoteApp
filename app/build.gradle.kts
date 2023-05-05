@@ -32,7 +32,6 @@ android {
 }
 
 dependencies {
-    //implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
     implementation(Dependencies.appLibraries)
     testImplementation(Dependencies.testLibraries)
     androidTestImplementation(Dependencies.androidTestLibraries)
