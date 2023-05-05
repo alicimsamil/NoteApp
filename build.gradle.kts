@@ -4,6 +4,7 @@ plugins {
     id(ClassPaths.kotlinGradlePath) version Versions.kotlinGradleVersion apply false
     id(ClassPaths.androidApplicationPath) version Versions.androidApplicationPathVersion apply false
     id(ClassPaths.androidLibraryPath) version Versions.androidLibraryPathVersion apply false
+    id(ClassPaths.hiltPath) version Versions.hiltLibraryVersion apply false
 }
 
 tasks.register(name = "type", type = Delete::class) {

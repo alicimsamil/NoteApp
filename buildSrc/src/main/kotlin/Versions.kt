@@ -1,6 +1,9 @@
 object Versions{
     const val androidApplicationPathVersion = "7.2.2"
     const val androidLibraryPathVersion = "7.2.2"
+    const val hiltLibraryVersion = "2.44"
+
+    //Dependencies
     const val kotlinGradleVersion = "1.7.10"
     const val coreLibVersion = "1.9.0"
     const val appcompatLibVersion = "1.6.1"

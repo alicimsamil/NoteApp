@@ -8,6 +8,10 @@ object Dependencies {
     private const val appCompatLib = "androidx.appcompat:appcompat:${Versions.appcompatLibVersion}"
     private const val constraintLayoutLib = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
 
+    //Hilt
+    private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
+    private const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
+
     //test
     private const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
@@ -18,6 +22,7 @@ object Dependencies {
         add(appCompatLib)
         add(constraintLayoutLib)
         add(materialLib)
+        add(hiltLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -27,6 +32,10 @@ object Dependencies {
 
     val testLibraries = arrayListOf<String>().apply {
         add(testJUnitLib)
+    }
+
+    val kaptLibraries = arrayListOf<String>().apply {
+        add(hiltCompilerKaptLib)
     }
 
 }
