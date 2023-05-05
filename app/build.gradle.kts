@@ -4,16 +4,16 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.3")
+    compileSdk = Configs.compileSdkVersion
+    buildToolsVersion = Configs.buildToolsVersion
 
     defaultConfig {
-        applicationId = "com.task.noteapp"
-        minSdkVersion(21)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = Configs.applicationId
+        minSdk = Configs.minSdkVersion
+        targetSdk = Configs.targetSdkVersion
+        versionCode = Configs.versionCode
+        versionName = Configs.versionName
+        testInstrumentationRunner = Configs.testInstrumentationRunner
     }
 
     buildTypes {
@@ -32,13 +32,8 @@ android {
 }
 
 dependencies {
-
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.4.21")
-    implementation ("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.2.0")
-    implementation ("com.google.android.material:material:1.2.1")
-    implementation ("androidx.constraintlayout:constraintlayout:2.0.4")
-    testImplementation ("junit:junit:4.13.1")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
+    //implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
+    implementation(Dependencies.appLibraries)
+    testImplementation(Dependencies.testLibraries)
+    androidTestImplementation(Dependencies.androidTestLibraries)
 }
