@@ -1,4 +1,8 @@
-object Versions{
+/**
+ * This class contains dependency versions.
+ */
+object Versions {
+    //Paths
     const val androidApplicationPathVersion = "7.2.2"
     const val androidLibraryPathVersion = "7.2.2"
     const val hiltLibraryVersion = "2.44"

@@ -1,3 +1,6 @@
+/**
+ * This class contains build.gradle configurations.
+ */
 object Configs {
     const val compileSdkVersion  = 33
     const val minSdkVersion  = 21
