@@ -15,6 +15,10 @@ object Dependencies {
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
     private const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
 
+    //Coroutines
+    private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
+    private const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
+
     //test
     private const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
@@ -26,6 +30,7 @@ object Dependencies {
         add(constraintLayoutLib)
         add(materialLib)
         add(hiltLib)
+        add(coroutinesLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -35,6 +40,7 @@ object Dependencies {
 
     val testLibraries = arrayListOf<String>().apply {
         add(testJUnitLib)
+        add(coroutinesTestLib)
     }
 
     val kaptLibraries = arrayListOf<String>().apply {
