@@ -10,6 +10,7 @@ object Dependencies {
     private const val coreKtxLib = "androidx.core:core-ktx:${Versions.coreLibVersion}"
     private const val appCompatLib = "androidx.appcompat:appcompat:${Versions.appcompatLibVersion}"
     private const val constraintLayoutLib = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
+    private const val dataBindingLib = "androidx.databinding:databinding-runtime:${Versions.dataBindingVersion}"
 
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
@@ -31,6 +32,7 @@ object Dependencies {
         add(materialLib)
         add(hiltLib)
         add(coroutinesLib)
+        add(dataBindingLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
