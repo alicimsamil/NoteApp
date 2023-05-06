@@ -21,6 +21,10 @@ object Dependencies {
     private const val roomCompilerLib= "androidx.room:room-compiler:${Versions.roomVersion}"
     private const val roomTestLib= "androidx.room:room-testing:${Versions.roomVersion}"
     private const val roomKtxLib= "androidx.room:room-ktx:${Versions.roomVersion}"
+    private const val roomPagingLib = "androidx.room:room-paging:${Versions.roomVersion}"
+
+    //Paging
+    private const val pagingLib = "androidx.paging:paging-common-ktx:${Versions.pagingVersion}"
 
     //Coroutines
     private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
@@ -41,6 +45,8 @@ object Dependencies {
         add(dataBindingLib)
         add(roomLib)
         add(roomKtxLib)
+        add(roomPagingLib)
+        add(pagingLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
