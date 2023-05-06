@@ -16,4 +16,6 @@ object Versions {
     const val testJunitVersion = "4.13.2"
     const val testExtJunitVersion = "1.1.5"
     const val testEspressoVersion = "3.5.1"
+    const val coroutinesVersion = "1.7.0"
+    const val dataBindingVersion = "8.0.1"
 }
