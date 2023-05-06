@@ -75,6 +75,10 @@ object Dependencies {
         add(hiltCompilerKaptLib)
     }
 
+    val kaptAndroidTestLibraries = arrayListOf<String>().apply {
+        add(hiltCompilerKaptLib)
+    }
+
 }
 
 /**
@@ -92,6 +96,12 @@ fun DependencyHandler.kapt(list: List<String>) {
 fun DependencyHandler.kaptTest(list: List<String>) {
     list.forEach { dependency ->
         add("kaptTest", dependency)
+    }
+}
+
+fun DependencyHandler.kaptAndroidTest(list: List<String>) {
+    list.forEach { dependency ->
+        add("kaptAndroidTest", dependency)
     }
 }
 
