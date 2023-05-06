@@ -2,7 +2,7 @@ package com.task.noteapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.task.noteapp.data.local.NoteDatabase
+import com.task.noteapp.data.local.db.NoteDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
