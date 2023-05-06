@@ -15,6 +15,7 @@ object Dependencies {
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
     private const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
+    private const val hiltTestingLib = "com.google.dagger:hilt-android-testing:${Versions.hiltLibraryVersion}"
 
     //Room
     private const val roomLib= "androidx.room:room-runtime:${Versions.roomVersion}"
@@ -52,6 +53,7 @@ object Dependencies {
     val androidTestLibraries = arrayListOf<String>().apply {
         add(testExtJUnitLib)
         add(testEspressoCoreLib)
+        add(hiltTestingLib)
     }
 
     val testLibraries = arrayListOf<String>().apply {
@@ -69,6 +71,10 @@ object Dependencies {
         add(roomCompilerLib)
     }
 
+    val kaptTestLibraries = arrayListOf<String>().apply {
+        add(hiltCompilerKaptLib)
+    }
+
 }
 
 /**
@@ -77,6 +83,15 @@ object Dependencies {
 fun DependencyHandler.kapt(list: List<String>) {
     list.forEach { dependency ->
         add("kapt", dependency)
+    }
+}
+
+/**
+ * This function adds kaptTest dependencies sequentially.
+ */
+fun DependencyHandler.kaptTest(list: List<String>) {
+    list.forEach { dependency ->
+        add("kaptTest", dependency)
     }
 }
 
