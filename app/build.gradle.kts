@@ -18,10 +18,50 @@ android {
         testInstrumentationRunner = Configs.testInstrumentationRunner
     }
 
+    flavorDimensions.add("version")
+
+    productFlavors {
+        create("qa"){
+            dimension = "version"
+            manifestPlaceholders["appName"] = Configs.testAppName
+            applicationId = Configs.qaApplicationId
+            buildConfigField(
+                "String",
+                "DATABASE_NAME",
+                "\"NOTE_APP_DB_QA\""
+            )
+            buildConfigField(
+                "int",
+                "DATABASE_VERSION_CODE",
+                "1"
+            )
+        }
+
+        create("prod"){
+            dimension = "version"
+            manifestPlaceholders["appName"] = Configs.prodAppName
+            applicationId = Configs.applicationId
+            buildConfigField(
+                "String",
+                "DATABASE_NAME",
+                "\"NOTE_APP_DB\""
+            )
+
+            buildConfigField(
+                "int",
+                "DATABASE_VERSION_CODE",
+                "1"
+            )
+        }
+    }
+
     buildTypes {
-       getByName("release") {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        getByName("debug") {
+            isDebuggable = true
         }
     }
 
@@ -33,6 +73,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }

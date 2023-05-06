@@ -9,5 +9,6 @@ object Configs {
     const val versionCode = 1
     const val versionName = "1.0.0"
     const val applicationId = "com.task.noteapp"
+    const val qaApplicationId = "com.task.noteapp.qa"
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
