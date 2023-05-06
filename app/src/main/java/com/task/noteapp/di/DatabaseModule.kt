@@ -3,8 +3,8 @@ package com.task.noteapp.di
 import android.content.Context
 import androidx.room.Room
 import com.task.noteapp.BuildConfig
-import com.task.noteapp.data.local.NoteDAO
-import com.task.noteapp.data.local.NoteDatabase
+import com.task.noteapp.data.local.db.NoteDAO
+import com.task.noteapp.data.local.db.NoteDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

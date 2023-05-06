@@ -1,6 +1,8 @@
 package com.task.noteapp.data.local
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.task.noteapp.data.local.db.NoteDAO
+import com.task.noteapp.data.local.db.NoteDatabase
 import com.task.noteapp.data.model.NoteModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

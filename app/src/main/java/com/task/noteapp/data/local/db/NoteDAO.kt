@@ -1,4 +1,4 @@
-package com.task.noteapp.data.local
+package com.task.noteapp.data.local.db
 
 import androidx.paging.PagingSource
 import androidx.room.*
