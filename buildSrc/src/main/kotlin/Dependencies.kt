@@ -16,6 +16,12 @@ object Dependencies {
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
     private const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
 
+    //Room
+    private const val roomLib= "androidx.room:room-runtime:${Versions.roomVersion}"
+    private const val roomCompilerLib= "androidx.room:room-compiler:${Versions.roomVersion}"
+    private const val roomTestLib= "androidx.room:room-testing:${Versions.roomVersion}"
+    private const val roomKtxLib= "androidx.room:room-ktx:${Versions.roomVersion}"
+
     //Coroutines
     private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     private const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
@@ -33,6 +39,8 @@ object Dependencies {
         add(hiltLib)
         add(coroutinesLib)
         add(dataBindingLib)
+        add(roomLib)
+        add(roomKtxLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -43,10 +51,16 @@ object Dependencies {
     val testLibraries = arrayListOf<String>().apply {
         add(testJUnitLib)
         add(coroutinesTestLib)
+        add(roomTestLib)
     }
 
     val kaptLibraries = arrayListOf<String>().apply {
         add(hiltCompilerKaptLib)
+        add(roomCompilerLib)
+    }
+
+    val annotationLibraries = arrayListOf<String>().apply {
+        add(roomCompilerLib)
     }
 
 }
@@ -84,5 +98,14 @@ fun DependencyHandler.androidTestImplementation(list: List<String>) {
 fun DependencyHandler.testImplementation(list: List<String>) {
     list.forEach { dependency ->
         add("testImplementation", dependency)
+    }
+}
+
+/**
+ * This function adds annotationProcessor dependencies sequentially.
+ */
+fun DependencyHandler.annotationProcessor(list: List<String>) {
+    list.forEach { dependency ->
+        add("annotationProcessor", dependency)
     }
 }
