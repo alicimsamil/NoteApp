@@ -18,4 +18,6 @@ object Versions {
     const val testEspressoVersion = "3.5.1"
     const val coroutinesVersion = "1.7.0"
     const val dataBindingVersion = "8.0.1"
+    const val roomVersion = "2.5.1"
+    const val pagingVersion = "3.1.1"
 }

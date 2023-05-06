@@ -15,6 +15,17 @@ object Dependencies {
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
     private const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
+    private const val hiltTestingLib = "com.google.dagger:hilt-android-testing:${Versions.hiltLibraryVersion}"
+
+    //Room
+    private const val roomLib= "androidx.room:room-runtime:${Versions.roomVersion}"
+    private const val roomCompilerLib= "androidx.room:room-compiler:${Versions.roomVersion}"
+    private const val roomTestLib= "androidx.room:room-testing:${Versions.roomVersion}"
+    private const val roomKtxLib= "androidx.room:room-ktx:${Versions.roomVersion}"
+    private const val roomPagingLib = "androidx.room:room-paging:${Versions.roomVersion}"
+
+    //Paging
+    private const val pagingLib = "androidx.paging:paging-common-ktx:${Versions.pagingVersion}"
 
     //Coroutines
     private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
@@ -33,19 +44,38 @@ object Dependencies {
         add(hiltLib)
         add(coroutinesLib)
         add(dataBindingLib)
+        add(roomLib)
+        add(roomKtxLib)
+        add(roomPagingLib)
+        add(pagingLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
         add(testExtJUnitLib)
         add(testEspressoCoreLib)
+        add(hiltTestingLib)
     }
 
     val testLibraries = arrayListOf<String>().apply {
         add(testJUnitLib)
         add(coroutinesTestLib)
+        add(roomTestLib)
     }
 
     val kaptLibraries = arrayListOf<String>().apply {
+        add(hiltCompilerKaptLib)
+        add(roomCompilerLib)
+    }
+
+    val annotationLibraries = arrayListOf<String>().apply {
+        add(roomCompilerLib)
+    }
+
+    val kaptTestLibraries = arrayListOf<String>().apply {
+        add(hiltCompilerKaptLib)
+    }
+
+    val kaptAndroidTestLibraries = arrayListOf<String>().apply {
         add(hiltCompilerKaptLib)
     }
 
@@ -57,6 +87,21 @@ object Dependencies {
 fun DependencyHandler.kapt(list: List<String>) {
     list.forEach { dependency ->
         add("kapt", dependency)
+    }
+}
+
+/**
+ * This function adds kaptTest dependencies sequentially.
+ */
+fun DependencyHandler.kaptTest(list: List<String>) {
+    list.forEach { dependency ->
+        add("kaptTest", dependency)
+    }
+}
+
+fun DependencyHandler.kaptAndroidTest(list: List<String>) {
+    list.forEach { dependency ->
+        add("kaptAndroidTest", dependency)
     }
 }
 
@@ -84,5 +129,14 @@ fun DependencyHandler.androidTestImplementation(list: List<String>) {
 fun DependencyHandler.testImplementation(list: List<String>) {
     list.forEach { dependency ->
         add("testImplementation", dependency)
+    }
+}
+
+/**
+ * This function adds annotationProcessor dependencies sequentially.
+ */
+fun DependencyHandler.annotationProcessor(list: List<String>) {
+    list.forEach { dependency ->
+        add("annotationProcessor", dependency)
     }
 }
