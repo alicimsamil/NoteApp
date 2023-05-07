@@ -11,6 +11,9 @@ object Dependencies {
     private const val appCompatLib = "androidx.appcompat:appcompat:${Versions.appcompatLibVersion}"
     private const val constraintLayoutLib = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
     private const val dataBindingLib = "androidx.databinding:databinding-runtime:${Versions.dataBindingVersion}"
+    private const val viewModelLib = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelVersion}"
+    private const val activityLib = "androidx.activity:activity-ktx:${Versions.activityVersion}"
+
 
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
@@ -31,6 +34,9 @@ object Dependencies {
     private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     private const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
 
+    //Splash Screen
+    private const val splashScreenLib = "androidx.core:core-splashscreen:${Versions.splashScreenVersion}"
+
     //test
     private const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
@@ -48,6 +54,9 @@ object Dependencies {
         add(roomKtxLib)
         add(roomPagingLib)
         add(pagingLib)
+        add(splashScreenLib)
+        add(viewModelLib)
+        add(activityLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
