@@ -18,9 +18,9 @@ data class NoteModel(
     @ColumnInfo(name = DATE_FIELD)
     val date: Long,
     @ColumnInfo(name = NOTE_TITLE_FIELD)
-    val noteTitle: String?,
+    val noteTitle: String,
     @ColumnInfo(name = NOTE_FIELD)
-    val note: String?,
+    val note: String,
     @ColumnInfo(name = EDITED_TAG_FIELD)
     val editedTag: Boolean = false,
     @PrimaryKey(autoGenerate = true)
