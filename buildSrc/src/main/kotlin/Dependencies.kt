@@ -37,6 +37,11 @@ object Dependencies {
     //Splash Screen
     private const val splashScreenLib = "androidx.core:core-splashscreen:${Versions.splashScreenVersion}"
 
+    //Navigation
+    private const val navigationFragmentLib = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
+    private const val navigationUiLib = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
+
+
     //test
     private const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
