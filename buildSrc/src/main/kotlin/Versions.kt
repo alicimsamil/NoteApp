@@ -20,4 +20,7 @@ object Versions {
     const val dataBindingVersion = "8.0.1"
     const val roomVersion = "2.5.1"
     const val pagingVersion = "3.1.1"
+    const val splashScreenVersion = "1.0.1"
+    const val viewModelVersion = "2.6.1"
+    const val activityVersion = "1.7.1"
 }
