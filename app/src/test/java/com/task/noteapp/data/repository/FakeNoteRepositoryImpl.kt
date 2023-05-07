@@ -8,7 +8,7 @@ import com.task.noteapp.data.model.NoteModel
 import com.task.noteapp.domain.repository.local.NoteRepository
 
 class FakeNoteRepositoryImpl : NoteRepository {
-    private val notes = mutableListOf<NoteModel>()
+    val notes = mutableListOf<NoteModel>()
 
     override suspend fun addNote(noteModel: NoteModel): DataResult<Unit, String> {
         notes.add(noteModel)
