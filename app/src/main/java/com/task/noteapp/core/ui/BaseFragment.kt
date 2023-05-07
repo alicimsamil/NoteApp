@@ -7,31 +7,26 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.createViewModelLazy
+import androidx.fragment.app.viewModels
 import androidx.viewbinding.ViewBinding
 import javax.inject.Inject
 
-abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
+typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-    @Inject
-    lateinit var viewModel: VM
+abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val inflate: Inflate<VB>) : Fragment() {
+
+    protected abstract val viewModel: VM
 
     private var _binding: VB? = null
     protected val binding get() = _binding!!
-
-    @LayoutRes
-    abstract fun getContentViewId(): Int
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = DataBindingUtil.inflate(
-            inflater,
-            getContentViewId(),
-            container,
-            false
-        )
+        _binding = inflate.invoke(inflater,container,false)
         return binding.root
     }
 
