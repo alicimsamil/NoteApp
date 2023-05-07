@@ -31,6 +31,16 @@
         <item name="colorOnTertiaryContainer">@color/dark_on_tertiary_container</item>
         <!-- Outline color. -->
         <item name="colorOutline">@color/dark_outline</item>
-
+        <!-- Typography. -->
+        <item name="textAppearanceHeadline3">@style/TextAppearance.NoteApp.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.NoteApp.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.NoteApp.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.NoteApp.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.NoteApp.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.NoteApp.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.NoteApp.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.NoteApp.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.NoteApp.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.NoteApp.Caption</item>
     </style>
 </resources>
