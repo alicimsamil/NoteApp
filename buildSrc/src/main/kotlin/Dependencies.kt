@@ -62,6 +62,8 @@ object Dependencies {
         add(splashScreenLib)
         add(viewModelLib)
         add(activityLib)
+        add(navigationFragmentLib)
+        add(navigationUiLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
