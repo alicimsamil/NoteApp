@@ -8,7 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.task.noteapp.R
-import com.task.noteapp.util.splashScreenAnimationExitListener
+import com.task.noteapp.util.extensions.splashScreenAnimationExitListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
