@@ -4,7 +4,6 @@ import androidx.lifecycle.viewModelScope
 import com.task.noteapp.core.ui.BaseViewModel
 import com.task.noteapp.core.ui.UiEvent
 import com.task.noteapp.domain.usecase.GetNoteByIdUseCase
-import com.task.noteapp.feature.listing.ListingUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,7 +24,7 @@ class DetailScreenViewModel @Inject constructor(private val getNoteByIdUseCase: 
         }
     }
 
-    private fun getNote(id: Int) {
+    fun getNote(id: Int) {
         viewModelScope.launch {
             _uiState.value = (_uiState.value as DetailScreenUiState).copy(isLoading = true)
 
