@@ -21,7 +21,7 @@ class BaseViewModelTest {
     @Test
     fun uistate_should_be_update_correctly() = runTest {
         assertNull(viewModel.uiState.value?.isLoading)
-        val uiState = UiState(isLoading = false)
+        val uiState = TestUiState(isLoading = false, error = "", data = "ali")
         viewModel.uiState.emit(uiState)
         assertEquals(uiState.isLoading, viewModel.uiState.value?.isLoading)
     }
