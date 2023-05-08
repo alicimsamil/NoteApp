@@ -10,6 +10,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.task.noteapp.R
@@ -73,6 +74,13 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
         }
     }
 
+    protected fun navigate(id: Int, bundle: Bundle? = null){
+        bundle?.let {
+            findNavController().navigate(id, bundle)
+        } ?: run {
+            findNavController().navigate(id)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

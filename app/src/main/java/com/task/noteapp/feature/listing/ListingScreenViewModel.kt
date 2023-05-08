@@ -54,7 +54,6 @@ class ListingScreenViewModel @Inject constructor(
 
 
     private fun getAllNotes() {
-        _uiState.value = (_uiState.value as ListingUiState).copy(isLoading = true)
         _uiState.value = (_uiState.value as ListingUiState).copy(
             data = Pager(
                 PagingConfig(
