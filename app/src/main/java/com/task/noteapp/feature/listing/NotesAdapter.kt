@@ -12,8 +12,14 @@ import com.task.noteapp.util.extensions.gone
 import com.task.noteapp.util.extensions.loadImage
 import com.task.noteapp.util.extensions.visible
 
-class NotesAdapter(diffCallback: NoteComparator) :
-    PagingDataAdapter<NoteModel, NoteViewHolder>(diffCallback) {
+interface OnClickListener {
+    fun delete(noteModel: NoteModel)
+    fun update(noteModel: NoteModel)
+    fun goDetail(id: Int?)
+}
+
+class NotesAdapter (diffCallback: NoteComparator, private val onClickListener: OnClickListener) :
+    PagingDataAdapter<NoteModel, NotesAdapter.NoteViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -43,19 +49,35 @@ class NotesAdapter(diffCallback: NoteComparator) :
             return oldItem == newItem
         }
     }
-}
 
-class NoteViewHolder(private val binding: PagingNoteItemBinding) :
-    RecyclerView.ViewHolder(binding.root) {
-    fun bind(noteModel: NoteModel?) {
-        binding.apply {
-            noteModel?.let {
-                it.imageUrl?.let { it1 -> ivNoteItem.loadImage(it1) }
-                tvNoteItemDate.text = noteModel.date.formatDate()
-                tvNoteItemTitle.text = noteModel.noteTitle
-                tvNoteItemDesc.text = noteModel.note
-                if (noteModel.editedTag) tvNoteItemEditedTag.visible() else tvNoteItemEditedTag.gone()
+    inner class NoteViewHolder(private val binding: PagingNoteItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(noteModel: NoteModel?) {
+            binding.apply {
+                noteModel?.let {
+                    noteModel.imageUrl?.let { ivNoteItem.loadImage(it) }
+                    tvNoteItemDate.text = noteModel.date.formatDate()
+                    tvNoteItemTitle.text = noteModel.noteTitle
+                    tvNoteItemDesc.text = noteModel.note
+                    if (noteModel.editedTag) tvNoteItemEditedTag.visible() else tvNoteItemEditedTag.gone()
+                    initListeners(noteModel)
+                }
+            }
+        }
+
+        private fun initListeners(noteModel: NoteModel) {
+            binding.apply {
+                ivDeleteItem.setOnClickListener {
+                    onClickListener.delete(noteModel)
+                }
+                ivEditItem.setOnClickListener {
+                    onClickListener.update(noteModel)
+                }
+                root.setOnClickListener {
+                    onClickListener.goDetail(noteModel.id)
+                }
             }
         }
     }
 }
+
