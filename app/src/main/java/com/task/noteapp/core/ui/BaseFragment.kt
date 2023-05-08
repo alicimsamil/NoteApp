@@ -26,6 +26,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
     protected val binding get() = _binding!!
 
     protected abstract val state: UiState
+    private lateinit var constraintLayout: ConstraintLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +43,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
     }
 
     protected open fun initialize() {
-        handleLoading()
+        constraintLayout= ConstraintLayout(requireContext())
         handleFailure()
     }
 
@@ -62,8 +63,6 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
 
     protected fun handleLoading() {
         val progressBar = ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal)
-        val constraintLayout =
-            binding.root as ConstraintLayout
         progressBar.layoutParams = ConstraintLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
         progressBar.isIndeterminate = true
 
