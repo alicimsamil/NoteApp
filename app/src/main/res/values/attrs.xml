@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NoteAppButton">
+        <attr name="nab_icon" format="reference"/>
+        <attr name="nab_icon_visibility" format="boolean"/>
+        <attr name="iconSize" format="dimension"/>
+    </declare-styleable>
+</resources>
