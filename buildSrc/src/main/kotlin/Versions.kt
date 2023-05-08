@@ -24,5 +24,6 @@ object Versions {
     const val viewModelVersion = "2.6.1"
     const val activityVersion = "1.7.1"
     const val navVersion = "2.5.3"
+    const val glideVersion = "4.15.1"
 
 }

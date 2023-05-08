@@ -29,6 +29,7 @@ object Dependencies {
 
     //Paging
     private const val pagingLib = "androidx.paging:paging-common-ktx:${Versions.pagingVersion}"
+    private const val pagingRuntimeLib = "androidx.paging:paging-runtime-ktx:${Versions.pagingVersion}"
 
     //Coroutines
     private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
@@ -40,6 +41,9 @@ object Dependencies {
     //Navigation
     private const val navigationFragmentLib = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
     private const val navigationUiLib = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
+
+    //Glide
+    private const val glideLib ="com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
 
     //test
@@ -64,6 +68,8 @@ object Dependencies {
         add(activityLib)
         add(navigationFragmentLib)
         add(navigationUiLib)
+        add(glideLib)
+        add(pagingRuntimeLib)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -115,6 +121,9 @@ fun DependencyHandler.kaptTest(list: List<String>) {
     }
 }
 
+/**
+ * This function adds kaptAndroidTest dependencies sequentially.
+ */
 fun DependencyHandler.kaptAndroidTest(list: List<String>) {
     list.forEach { dependency ->
         add("kaptAndroidTest", dependency)
