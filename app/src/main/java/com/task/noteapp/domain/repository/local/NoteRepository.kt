@@ -8,6 +8,6 @@ interface NoteRepository {
     suspend fun addNote(noteModel: NoteModel): DataResult<Unit, String>
     suspend fun updateNote(noteModel: NoteModel): DataResult<Unit, String>
     suspend fun deleteNote(noteModel: NoteModel): DataResult<Unit, String>
-    suspend fun getAllNotes(): DataResult<PagingSource<Int, NoteModel>, String>
+    fun getAllNotes(): PagingSource<Int, NoteModel>
     suspend fun getNoteById(id: Int): DataResult<NoteModel, String>
 }

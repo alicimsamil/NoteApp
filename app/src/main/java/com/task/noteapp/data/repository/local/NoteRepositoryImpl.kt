@@ -16,7 +16,7 @@ class NoteRepositoryImpl @Inject constructor(private val localDataSource: LocalD
     override suspend fun deleteNote(noteModel: NoteModel) =
         localDataSource.deleteNote(noteModel)
 
-    override suspend fun getAllNotes() =
+    override fun getAllNotes() =
         localDataSource.getAllNotes()
 
     override suspend fun getNoteById(id: Int) =
