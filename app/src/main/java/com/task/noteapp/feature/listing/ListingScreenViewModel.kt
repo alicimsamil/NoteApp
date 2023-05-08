@@ -6,16 +6,18 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.task.noteapp.core.ui.BaseViewModel
 import com.task.noteapp.core.ui.UiEvent
+import com.task.noteapp.data.model.NoteModel
+import com.task.noteapp.domain.usecase.DeleteNoteUseCase
 import com.task.noteapp.domain.usecase.GetAllNotesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ListingScreenViewModel @Inject constructor(
-    private val getAllNotesUseCase: GetAllNotesUseCase
+    private val getAllNotesUseCase: GetAllNotesUseCase,
+    private val deleteNoteUseCase: DeleteNoteUseCase
 ) :
     BaseViewModel() {
 
@@ -26,33 +28,49 @@ class ListingScreenViewModel @Inject constructor(
 
 
     override fun onEvent(event: UiEvent) {
-        TODO("Not yet implemented")
+        when (event) {
+            is ListingUiEvents.DeleteNote -> {
+                deleteNote(event.noteModel)
+            }
+        }
     }
 
-    private fun getAllNotes() {
+    private fun deleteNote(noteModel: NoteModel) {
         viewModelScope.launch {
             _uiState.value = (_uiState.value as ListingUiState).copy(isLoading = true)
-            getAllNotesUseCase.invoke()
-                .onSuccess { pagingSource ->
+            deleteNoteUseCase.invoke(noteModel)
+                .onSuccess {
+                    _uiState.value = (_uiState.value as ListingUiState).copy(isLoading = false)
+                }
+                .onFailure {
+                    _uiState.value =
+                        (_uiState.value as ListingUiState).copy(
+                            isLoading = false,
+                            error = it.orEmpty()
+                        )
+                }
+        }
+    }
+
+
+    private fun getAllNotes() {
+        _uiState.value = (_uiState.value as ListingUiState).copy(isLoading = true)
+        _uiState.value = (_uiState.value as ListingUiState).copy(
+            data = Pager(
+                PagingConfig(
+                    pageSize = 10,
+                    enablePlaceholders = true
+                ),
+                pagingSourceFactory = { getAllNotesUseCase.invoke() }
+            ).flow.cachedIn(viewModelScope)
+                .catch { exception ->
                     _uiState.value = (_uiState.value as ListingUiState).copy(
-                        data =
-                        Pager(
-                            PagingConfig(
-                                pageSize = 10,
-                                enablePlaceholders = false
-                            )
-                        ) {
-                            pagingSource!!
-                        }.flow.cachedIn(CoroutineScope(Dispatchers.IO)),
+                        error = exception.message.orEmpty(),
                         isLoading = false
                     )
                 }
-                .onFailure {
-                    it?.let {
-                        _uiState.value =
-                            (_uiState.value as ListingUiState).copy(error = it, isLoading = false)
-                    }
-                }
-        }
+            ,
+            isLoading = false
+        )
     }
 }
