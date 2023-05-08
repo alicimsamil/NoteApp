@@ -9,5 +9,25 @@
         android:id="@+id/listingScreenFragment"
         android:name="com.task.noteapp.feature.listing.ListingScreenFragment"
         android:label="fragment_listing_screen"
-        tools:layout="@layout/fragment_listing_screen" />
+        tools:layout="@layout/fragment_listing_screen" >
+        <action
+            android:id="@+id/action_listingScreenFragment_to_detailScreenFragment"
+            app:destination="@id/detailScreenFragment"
+            app:enterAnim="@anim/page_transition_to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailScreenFragment"
+        android:name="com.task.noteapp.feature.detail.DetailScreenFragment"
+        android:label="fragment_detail_screen"
+        tools:layout="@layout/fragment_detail_screen" >
+        <action
+            android:id="@+id/action_detailScreenFragment_to_listingScreenFragment"
+            app:destination="@id/listingScreenFragment"
+            app:enterAnim="@anim/page_transition_to_right"
+            app:popUpTo="@id/listingScreenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
