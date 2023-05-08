@@ -23,4 +23,7 @@ object Versions {
     const val splashScreenVersion = "1.0.1"
     const val viewModelVersion = "2.6.1"
     const val activityVersion = "1.7.1"
+    const val navVersion = "2.5.3"
+    const val glideVersion = "4.15.1"
+
 }

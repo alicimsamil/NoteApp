@@ -1,4 +1,4 @@
-package com.task.noteapp.util
+package com.task.noteapp.util.extensions
 
 import android.animation.ObjectAnimator
 import android.os.Build

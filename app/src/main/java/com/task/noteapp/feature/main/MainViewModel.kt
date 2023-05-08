@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor() : BaseViewModel() {
     private fun getSplashAnimationState() {
         viewModelScope.launch {
             delay(750.milliseconds)
-            _uiState.emit(MainUiState(splashAnimationState = false))
+            _uiState.value = (_uiState.value as MainUiState).copy(splashAnimationState = false)
         }
     }
 }

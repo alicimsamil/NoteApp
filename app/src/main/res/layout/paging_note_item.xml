@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_medium"
+    android:layout_marginVertical="@dimen/space_small"
+    android:background="@drawable/bg_paging_note">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivNoteItem"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_medium"
+        android:layout_marginTop="@dimen/space_medium"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mountain_view"
+        app:layout_constraintBottom_toTopOf="@+id/tvNoteItemDesc"
+        app:layout_constraintEnd_toStartOf="@id/tvNoteItemDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDeleteItem"
+        android:layout_width="@dimen/size_medium"
+        android:layout_height="@dimen/size_medium"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toStartOf="@id/ivNoteItem"
+        app:layout_constraintBottom_toTopOf="@id/ivNoteItem"
+        app:layout_constraintStart_toStartOf="@id/ivNoteItem"
+        app:layout_constraintTop_toTopOf="@id/ivNoteItem"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivEditItem"
+        android:layout_width="@dimen/size_medium"
+        android:layout_height="@dimen/size_medium"
+        android:src="@drawable/ic_edit"
+        android:layout_marginStart="@dimen/space_extra_small"
+        app:layout_constraintBottom_toTopOf="@id/ivNoteItem"
+        app:layout_constraintStart_toEndOf="@id/ivDeleteItem"
+        app:layout_constraintTop_toTopOf="@id/ivNoteItem"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoteItemDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_medium"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textColor="?attr/colorOnTertiaryContainer"
+        app:layout_constraintStart_toEndOf="@id/ivNoteItem"
+        app:layout_constraintTop_toTopOf="@id/ivNoteItem"
+        tools:text="13/02/2000" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoteItemTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginEnd="@dimen/space_small"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="?attr/colorOnTertiaryContainer"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/tvNoteItemDate"
+        app:layout_constraintTop_toBottomOf="@id/tvNoteItemDate"
+        tools:text="Bu not Ali tarafından oluşturulmuştur" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoteItemDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginEnd="@dimen/space_medium_small"
+        android:layout_marginBottom="@dimen/space_medium_small"
+        android:maxLines="2"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textColor="?attr/colorOnTertiaryContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/ivNoteItem"
+        app:layout_constraintTop_toBottomOf="@id/ivNoteItem"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Rüzgârla gelen İlkbahar gibi gözlerin Bıktım geceden Her zaman güzeldi düşlerim" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoteItemEditedTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_extra_small"
+        android:layout_marginEnd="@dimen/space_medium_small"
+        android:text="@string/edited"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="?attr/colorOnTertiaryContainer"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNoteItemDesc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

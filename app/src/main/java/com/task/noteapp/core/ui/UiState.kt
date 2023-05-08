@@ -1,6 +1,6 @@
 package com.task.noteapp.core.ui
 
-open class UiState(
-    val isLoading: Boolean = false,
-    val error: String = ""
-)
+interface UiState{
+     var isLoading: Boolean
+     var error: String
+}

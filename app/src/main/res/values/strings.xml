@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">NoteApp</string>
+
+    <string name="notes">Notes</string>
+    <string name="edited">Edited</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="warning">Warning</string>
+    <string name="are_you_sure">"Are you sure you want to delete the note?"</string>
+
 </resources>

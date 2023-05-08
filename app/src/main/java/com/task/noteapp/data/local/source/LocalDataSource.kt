@@ -22,10 +22,8 @@ class LocalDataSource @Inject constructor(private val noteDAO: NoteDAO) : BaseLo
             noteDAO.deleteNote(noteModel)
         }
 
-    suspend fun getAllNotes() =
-        performDatabaseOperation {
-            noteDAO.getAllNotes()
-        }
+    fun getAllNotes() = noteDAO.getAllNotes()
+
 
     suspend fun getNoteById(id: Int) =
         performDatabaseOperation {

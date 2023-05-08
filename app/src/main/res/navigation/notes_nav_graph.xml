@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notes_nav_graph"
+    app:startDestination="@id/listingScreenFragment">
+
+    <fragment
+        android:id="@+id/listingScreenFragment"
+        android:name="com.task.noteapp.feature.listing.ListingScreenFragment"
+        android:label="fragment_listing_screen"
+        tools:layout="@layout/fragment_listing_screen" />
+</navigation>

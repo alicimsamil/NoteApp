@@ -32,8 +32,8 @@ class FakeNoteRepositoryImpl : NoteRepository {
         return Error("Note not found")
     }
 
-    override suspend fun getAllNotes(): DataResult<PagingSource<Int, NoteModel>, String> {
-        return Success(null)
+    override fun getAllNotes(): PagingSource<Int, NoteModel> {
+        return FakePagingSource()
     }
 
     override suspend fun getNoteById(id: Int): DataResult<NoteModel, String> {
