@@ -18,6 +18,10 @@ import com.task.noteapp.R
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
+
+/**
+ * This fragment was written to gather the common operations of all other fragments in one place.
+ */
 abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val inflate: Inflate<VB>) :
     Fragment() {
 
@@ -43,11 +47,17 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
         initialize()
     }
 
+    /**
+     * This function is where the ui operations in the fragment should be done.
+     */
     protected open fun initialize() {
         constraintLayout= ConstraintLayout(requireContext())
         handleFailure()
     }
 
+    /**
+     * This function handles the change of failure value in states.
+     */
     protected fun handleFailure() {
         view?.let { itView ->
             if (state.error.isNotEmpty()) {
@@ -62,6 +72,9 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
         }
     }
 
+    /**
+     * This function handles the change of loading value in states.
+     */
     protected fun handleLoading() {
         val progressBar = ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal)
         progressBar.layoutParams = ConstraintLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
@@ -74,6 +87,9 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(private val in
         }
     }
 
+    /**
+     * This function takes an id and bundle parameter and redirect with navigation component according to these parameters.
+     */
     protected fun navigate(id: Int, bundle: Bundle? = null){
         bundle?.let {
             findNavController().navigate(id, bundle)

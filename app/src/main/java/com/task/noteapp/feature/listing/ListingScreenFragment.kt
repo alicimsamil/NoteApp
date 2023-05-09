@@ -5,7 +5,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import com.task.noteapp.R
 import com.task.noteapp.core.ui.BaseFragment
 import com.task.noteapp.core.ui.custom.CallBack

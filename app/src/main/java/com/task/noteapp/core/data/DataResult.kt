@@ -1,5 +1,10 @@
 package com.task.noteapp.core.data
 
+/**
+ * This class has been written for convenience
+ * when moving data between the data layer
+ * and the feature layer and making changes on it.
+ */
 sealed class DataResult<out V, out E>() {
 
     inline infix fun onSuccess(action: (V?) -> Unit): DataResult<V?, E> {
