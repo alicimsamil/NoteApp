@@ -1,5 +1,6 @@
 package com.task.noteapp.data.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,7 +11,9 @@ import com.task.noteapp.data.model.TableConstants.IMAGE_URL
 import com.task.noteapp.data.model.TableConstants.NOTE_FIELD
 import com.task.noteapp.data.model.TableConstants.NOTE_TITLE_FIELD
 import com.task.noteapp.data.model.TableConstants.TABLE_NAME
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = TABLE_NAME)
 data class NoteModel(
     @ColumnInfo(name = IMAGE_URL)
@@ -26,7 +29,7 @@ data class NoteModel(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = ID_FIELD)
     val id: Int? = null
-)
+) : Parcelable
 
 object TableConstants{
     const val TABLE_NAME = "notes_table"
