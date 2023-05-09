@@ -11,6 +11,8 @@
     <dimen name="text_size_extra_small">12sp</dimen>
 
     //Spacing
+    <dimen name="space_huge">150dp</dimen>
+    <dimen name="space_very_big">90dp</dimen>
     <dimen name="space_big_small">30dp</dimen>
     <dimen name="space_medium">20dp</dimen>
     <dimen name="space_medium_small">15dp</dimen>

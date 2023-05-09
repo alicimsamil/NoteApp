@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteApp.Splash">
         <activity android:name=".feature.main.MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

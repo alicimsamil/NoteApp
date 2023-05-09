@@ -30,6 +30,13 @@ class ListingScreenFragment :
         super.initialize()
         observeUiState()
         setRecyclerAdapter()
+        initListeners()
+    }
+
+    private fun initListeners(){
+        binding.fab.setOnClickListener {
+            navigate(R.id.action_listingScreenFragment_to_addAndUpdateScreenFragment, bundleOf("model" to null))
+        }
     }
 
     private fun setRecyclerAdapter() {
@@ -61,6 +68,7 @@ class ListingScreenFragment :
     }
 
     override fun update(noteModel: NoteModel) {
+        navigate(R.id.action_listingScreenFragment_to_addAndUpdateScreenFragment, bundleOf("model" to noteModel))
     }
 
     override fun goDetail(id: Int?) {
