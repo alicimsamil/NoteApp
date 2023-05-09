@@ -5,6 +5,10 @@ import android.database.sqlite.SQLiteException
 import android.os.DeadObjectException
 import com.task.noteapp.BuildConfig
 
+/**
+ * This class makes success and fail situations in database operations easier,
+ * cleaner and more readable.
+ */
 open class BaseLocalDataSource {
     suspend fun <T> performDatabaseOperation(
         call: suspend () -> T
