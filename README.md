@@ -15,3 +15,15 @@ This GitHub repository contains a note-taking app written in Kotlin. While devel
 * Glide for image loading
 * JUnit and Espresso
 * Github Actions for manage CI opearations.
+
+
+
+
+
+### Media ###
+
+
+https://user-images.githubusercontent.com/81926983/237053732-f6ced8c9-04fb-4666-b61d-5fe34250b405.mp4
+
+
+
