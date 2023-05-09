@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
 import com.task.noteapp.R
 import com.task.noteapp.util.extensions.visible
+import com.task.noteapp.util.extensions.gone
 
 /**
  * This button a lifecycle aware component. Because if a View's visibility property is set to View.GONE,
@@ -110,6 +111,6 @@ class NoteAppButton @JvmOverloads constructor(
 
     override fun onPause(owner: LifecycleOwner) {
         super.onPause(owner)
-        visible()
+        gone()
     }
 }
